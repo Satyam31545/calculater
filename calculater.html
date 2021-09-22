@@ -1,0 +1,128 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CALULATER</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      background: linear-gradient(rgb(15, 8, 8), rgb(8, 7, 4));
+      color: white;
+    }
+
+    .CONTAINER {
+      position: absolute;
+      width: 270px;
+      height: 370px;
+      backdrop-filter: blur(15px);
+      z-index: 10;
+      background: linear-gradient(rgb(247, 6, 6), green);
+      top: 100px;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .value {
+      display: inline-block;
+      min-width: 23.5%;
+      min-height: 50px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .value2 {
+      display: inline-block;
+      min-width: 47%;
+      min-height: 50px;
+      text-align: center;
+      font-size: 20px;
+    }
+
+    .inputboxs {
+      width: 100%;
+      text-align: right;
+      min-height: 60px;
+      font-size: 25px;
+      background-color: gray;
+      border: 0px;
+    }
+
+    .value:hover {
+      background-color: crimson;
+    }
+
+    .value2:hover {
+      background-color: rgb(10, 7, 7);
+    }
+
+    .value:active {
+      background-color: rgb(20, 220, 87);
+    }
+
+    .value2:active {
+      background-color: rgb(20, 220, 87);
+    }
+
+    span {
+      display: block;
+      height: 40px;
+      font-size: 40px;
+    }
+
+    .center {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+</head>
+
+<body><br>
+  <div class="center">
+    <div class="CONTAINER">
+      <form name="keyword">
+        <input type="text" class="inputboxs"  name="historycontainer" /><br>
+        <input type="text" class="inputboxs" id="place" readonly name="inputbox" /><br>
+        <span class="value2" onclick="keyword.inputbox.value = ''"
+          onmouseup="keyword.historycontainer.value = ''">C</span>
+        <span class="value" id="hist" onclick="document.keyword.inputbox.value = eval(keyword.inputbox.value)"
+          onmouseup="history()">=</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '/'">/</span><br>
+
+
+        <span class="value" onclick="document.keyword.inputbox.value += '7'">7</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '8'">8</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '9'">9</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '*'">x</span><br>
+
+        <span class="value" onclick="document.keyword.inputbox.value += '4'">4</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '5'">5</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '6'">6</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '-'">-</span><br>
+
+        <span class="value" onclick="document.keyword.inputbox.value += '1'">1</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '2'">2</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '3'">3</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '+'">+</span>
+
+        <span class="value" onclick="document.keyword.inputbox.value += '0'">0</span>
+        <span class="value" onclick="document.keyword.inputbox.value += '00'">00</span>
+        <span class="value2" onclick="document.keyword.inputbox.value += '.'">.</span>
+      </form>
+    </div>
+  </div>
+
+  <script>
+
+    function history() {
+      var val = document.keyword.inputbox.value;
+      localStorage.setItem("historyval", document.keyword.inputbox.value);
+      document.keyword.historycontainer.value = localStorage.getItem("historyval");
+    };
+   
+  </script>
+</body>
+
+</html>
